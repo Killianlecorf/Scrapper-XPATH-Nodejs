@@ -22,7 +22,7 @@ const getPages = async () => {
 
 const getElement = async () => {
     const pages = await getPages();
-    const document = await getDocument(1);
+    const document = await getDocument();
     const element = document.findElement("//a[@class='btn btn-primary'][starts-with(@href, '/product/')]")?.getText()
     return element;
 }
@@ -40,4 +40,31 @@ const getPagesLinks = async () => {
     return pagesLinks
 }
 
-getPagesLinks()
+
+const getTitle = async () => {
+    const pagesLinks = await getPagesLinks()
+    for (const link of pagesLinks) {
+        const response = await fetch('http://vps-a47222b1.vps.ovh.net:8484' + link)  
+        const page = await response.text();
+        const document = xpath.fromPageSource(page)
+        const title = document.findElement("//h1");
+        const titleText = title.getText()
+        console.log(titleText);
+    }
+}
+
+getTitle()
+
+const getDesc = async () => {
+    const pagesLinks = await getPagesLinks()
+    for (const link of pagesLinks) {
+        const response = await fetch('http://vps-a47222b1.vps.ovh.net:8484' + link)  
+        const page = await response.text();
+        const document = xpath.fromPageSource(page)
+        const desc = document.findElement("//div[@class='p-1']/p");
+        const descText = desc.getText()
+        console.log(descText);
+    }
+}
+
+getDesc()
