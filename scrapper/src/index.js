@@ -20,12 +20,12 @@ const getPages = async () => {
     return pages
 }
 
-const getElement = async () => {
-    const pages = await getPages();
-    const document = await getDocument();
-    const element = document.findElement("//a[@class='btn btn-primary'][starts-with(@href, '/product/')]")?.getText()
-    return element;
-}
+// const getElement = async () => {
+//     const pages = await getPages();
+//     const document = await getDocument();
+//     const element = document.findElement("//a[@class='btn btn-primary'][starts-with(@href, '/product/')]")?.getText()
+//     return element;
+// }
 
 const getPagesLinks = async () => {
     const pages = await getPages();
@@ -53,7 +53,6 @@ const getTitle = async () => {
     }
 }
 
-getTitle()
 
 const getDesc = async () => {
     const pagesLinks = await getPagesLinks()
@@ -67,4 +66,30 @@ const getDesc = async () => {
     }
 }
 
-getDesc()
+
+const getImg = async () => {
+    const pagesLinks = await getPagesLinks()
+    for (const link of pagesLinks) {
+        const response = await fetch('http://vps-a47222b1.vps.ovh.net:8484' + link)  
+        const page = await response.text();
+        const document = xpath.fromPageSource(page)
+        const img = document.findElements("//div[@class='d-flex']/img");
+        const imgLink = img.toString()
+        console.log(imgLink);
+    }
+}
+
+getImg()
+
+const getPrice = async () => {
+    const pagesLinks = await getPagesLinks()
+    for (const link of pagesLinks) {
+        const response = await fetch('http://vps-a47222b1.vps.ovh.net:8484' + link)  
+        const page = await response.text();
+        const document = xpath.fromPageSource(page)
+        const price = document.findElement("//h3");
+        const pricetext = price.getText()
+        console.log(pricetext);
+    }
+}
+
