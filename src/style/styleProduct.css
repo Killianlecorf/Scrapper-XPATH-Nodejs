@@ -1,0 +1,154 @@
+body{
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header-area{
+    width: 100%;
+    height: 20vh;
+    background-color: rgb(236, 236, 236);
+    box-shadow: 2px 3px 10px green;
+}
+
+.header-content{
+    display: flex;
+}
+
+.logo-header-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 20vh;
+
+    
+}
+@media (max-width: 500px) {
+    .logo-header-content{
+        width: 100%;
+    }
+}
+
+.logo-header{
+    width:15vh ;
+    height: auto;
+    border-radius: 200px;
+}
+
+.link-logo{
+    border-radius: 200px;
+}
+
+.title-header-content{
+    width: 60%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-header{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 500px) {
+    .title-header-content{
+        display: none;
+    }
+}
+
+
+
+
+
+.pageProduct{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-product-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+}
+
+H1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.product-content{
+    display: flex;
+    width: 90%;
+    height:  60vh;
+}
+
+@media (max-width: 500px) {
+    .product-content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.img-content{
+    width: 35%;
+    height: auto;
+}
+
+@media (max-width: 500px) {
+    .img-content{
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+.img-product{
+    width: 100%;
+    height: auto;
+}
+
+
+.desc-content{
+    width: 75%;
+    height: 50%;
+    margin-left: 20px;
+}
+
+
+.desc{
+    width: 100%;
+    height: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.price-content{
+    width: 100%;
+    height: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 500px) {
+    .price-content{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 25px;
+    }
+    
+}
+
+.description{
+    margin-left: 20px;
+}
+
+.price{
+    margin-left: 20px;
+    font-weight: bold;
+}
+
